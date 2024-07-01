@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack_temp
+    ports:
+      - "4566:4566"
+      - "4575:4575"
+      - "4576:4576"
+    environment:
+      - SERVICES=s3,sns,sqs
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack
